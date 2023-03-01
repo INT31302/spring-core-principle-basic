@@ -31,4 +31,12 @@ public class ConfigurationSingletonTest {
         assertSame(memberRepository1, memberRepository);
         assertSame(memberRepository2, memberRepository);
     }
+
+    @Test
+    void configurationDeep(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+    }
 }
